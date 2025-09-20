@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'; // <-- 1. Import the plugin
 import { ChatMessage } from '../types';
 import { UserIcon, BotIcon } from './icons';
 
@@ -25,11 +26,11 @@ export const ChatMessageItem: React.FC<ChatMessageItemProps> = ({ message }) => 
       }`}>
         <div className="p-4">
           {typeof message.content === 'string' ? (
-            // Apply styling to a wrapper div, not the component itself
             <div className="prose prose-invert prose-sm">
               <ReactMarkdown
+                // 2. Add the remarkPlugins prop and include remarkGfm
+                remarkPlugins={[remarkGfm]} 
                 components={{
-                  // This ensures links open in a new tab
                   a: ({ node, ...props }) => <a target="_blank" rel="noopener noreferrer" {...props} />,
                 }}
               >

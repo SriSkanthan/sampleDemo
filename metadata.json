@@ -1,0 +1,7 @@
+{
+  "name": "ECOSAUR",
+  "description": "An AI-powered chatbot to analyze the health impact of food products and the eco-friendliness of electronic gadgets.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
